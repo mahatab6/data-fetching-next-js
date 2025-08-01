@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 export const singlepostId = async (id)=>{
@@ -17,7 +18,7 @@ export default async function PostDetails({params}) {
     <div className='text-center'>
         <h1>{post.title}</h1>
         <p>{post.body}</p>
-        
+        <Link href={`/post/${post?.id}/comments`}><button className='text-xl p-2 bg-yellow-500'>Comments</button></Link>
     </div>
   )
 }

@@ -19,7 +19,7 @@ export default async function Page() {
                         <div className='flex flex-col mb-5'>
                             <p>{singlepost.id}</p>
                             <p>{singlepost.title}</p>
-                            <Link className='text-2xl ' href={`/post/${singlepost?.id}`}>Details</Link>
+                            <Link href={`/post/${singlepost?.id}`}><button className='bg-green-500'>Details</button></Link>
                         </div>
                     </div>
                 )
