@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <div className='flex justify-around'>
         <Link href='/'>Home</Link>
-        <Link href='post'>Post</Link>
+        <Link href='/post'>Post</Link>
     </div>
   )
 }

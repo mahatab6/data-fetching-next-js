@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 export const getPost =async () => {
@@ -18,7 +19,7 @@ export default async function Page() {
                         <div className='flex flex-col mb-5'>
                             <p>{singlepost.id}</p>
                             <p>{singlepost.title}</p>
-                            <p>{singlepost.body}</p>
+                            <Link className='text-2xl ' href={`/post/${singlepost?.id}`}>Details</Link>
                         </div>
                     </div>
                 )
