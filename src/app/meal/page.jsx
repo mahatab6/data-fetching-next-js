@@ -1,5 +1,9 @@
 import Mealsearch from "./components/Mealsearch";
 
+export const metadata = {
+  title: 'All Meals',
+  
+}
 
 export default async function Meals({ searchParams }) {
      
