@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Mealsearch from "./components/Mealsearch";
 
 export const metadata = {
@@ -33,7 +34,7 @@ export default async function Meals({ searchParams }) {
                 meals?.map((data)=>{
                     return(
                         <div key={data?.idMeal}>
-                            <img className='w-50 h-50' src={data?.strMealThumb} alt="" />
+                            <Image width={400} height={400}   src={data?.strMealThumb || "/fallback.jpg"} alt={data?.strMeal || "Meal image"}/>
                             <p className='text-2xl font-bold'>{data?.strMeal}</p>
                             <p>{data?.strCategory}</p>
                         </div>
