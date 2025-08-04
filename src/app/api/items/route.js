@@ -1,20 +1,21 @@
+import { dbConnect } from "@/lib/dbConnect";
 
 
 export async function GET() {
-  
-    const data = {
-        message: "Successfuly get data",
-        error: false,
-        status: 200
-    }
- 
-  return Response.json({ data })
+    
+    const {db} = await dbConnect();
+    const result = await db.collection("user").find().toArray();
+    return Response.json(result)
 
 }
+
+
 
 export async function POST(req) {
   
     const postdata = await req.json();
- 
-  return Response.json({ postdata })
+    const {db} = await dbConnect();
+    const result = await db.collection("user").insertOne(postdata);
+    return Response.json(result)
+    
 }
