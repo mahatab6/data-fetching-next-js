@@ -16,6 +16,6 @@ export async function POST(req) {
     const postdata = await req.json();
     const {db} = await dbConnect();
     const result = await db.collection("user").insertOne(postdata);
-    return Response.json(result)
+    return Response.json(result);
     
 }
