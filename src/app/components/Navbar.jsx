@@ -6,6 +6,8 @@ export default function Navbar() {
     <div className='flex justify-around'>
         <Link href='/'>Home</Link>
         <Link href='/post'>Post</Link>
+        <Link href='/products'>Product</Link>
+        <Link href='/products/add'>Add Product</Link>
         <Link href='/meal'>Meals</Link>
     </div>
   )
