@@ -5,7 +5,17 @@ export default async function ProductsPage() {
     const data = await res.json();
   return (
     <div>
-        <p>{JSON.stringify(data)}</p>
+        <div>
+            {
+                data?.map((data)=>{
+                    return(
+                        <div key={data?._id}>
+                            <h1>{data?.name}</h1>
+                        </div>
+                    )
+                })
+            }
+        </div>
     </div>
   )
 }

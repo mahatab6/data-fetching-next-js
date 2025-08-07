@@ -3,8 +3,8 @@ export default function ProductAddForm() {
     const handleForm = async (e) => {
         e.preventDefault();
         const formelement = e.target;
-        const form = formelement.name.value;
-        const formData = {form};
+        const name = formelement.name.value;
+        const formData = {name};
         const res = await fetch("http://localhost:3000/api/items",{
             method: "POST",
             body: JSON.stringify(formData),
