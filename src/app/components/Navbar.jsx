@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import Login from './Login'
 
 export default function Navbar() {
   return (
@@ -9,6 +10,7 @@ export default function Navbar() {
         <Link href='/products'>Product</Link>
         <Link href='/products/add'>Add Product</Link>
         <Link href='/meal'>Meals</Link>
+        <Login/>
     </div>
   )
 }
