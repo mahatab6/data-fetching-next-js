@@ -1,3 +1,4 @@
+import { dbConnect } from "@/lib/dbConnect";
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
@@ -14,29 +15,24 @@ const handler = NextAuth({
             // e.g. domain, username, password, 2FA token, etc.
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
-            username: { label: "Username", type: "text" },
             password: { label: "Password", type: "password" },
             email: { label:"Email", type: "email" }
             },
             async authorize(credentials, req) {
                
-            // You need to provide your own logic here that takes the credentials
-            // submitted and returns either a object representing a user or value
-            // that is false/null if the credentials are invalid.
-            // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
-            // You can also use the `req` object to obtain additional parameters
-            // (i.e., the request IP address)
+                console.log(credentials)
+           const { password, email } = credentials;
 
 
-            // const res = await fetch("/your/endpoint", {
-            //     method: 'POST',
-            //     body: JSON.stringify(credentials),
-            //     headers: { "Content-Type": "application/json" }
-            // })
-            // const user = await res.json()
+           const { db } = await dbConnect();
+           const user = await db.collection("NewUsers").findOne({email})
+           console.log(user)
+           const isPasswordOk = password === user.password;
+
+
 
             // If no error and we have user data, return it
-            if (res.ok && user) {
+            if (isPasswordOk) {
                 return user
             }
             // Return null if user data could not be retrieved
@@ -44,7 +40,18 @@ const handler = NextAuth({
             }
         })
 
-    ]
+    ],
+    callbacks:{
+        async session({ session, token, user }) {
+        return session
+        },
+        async redirect({ url, baseUrl }) {
+        return baseUrl
+        },
+        async jwt({ token, user, account, profile, isNewUser }) {
+        return token
+        }
+    }
 })
 
 export { handler as GET, handler as POST }
