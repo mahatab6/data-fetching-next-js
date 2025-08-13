@@ -1,4 +1,4 @@
-import { dbConnect } from "@/lib/dbConnect";
+import { collectionName, dbConnect } from "@/lib/dbConnect";
 
 export async function POST(req) {
     try {
@@ -6,7 +6,7 @@ export async function POST(req) {
         const body = await req.json();
         const {db} = await dbConnect();
        
-        const result = await db.collection("NewUsers").insertOne(body);
+        const result = await db.collection(collectionName.NewUser).insertOne(body);
 
         return Response.json({message: "USer registered", id: result.insertedId})
     } catch (error) {
