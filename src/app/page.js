@@ -1,7 +1,10 @@
 import Image from "next/image";
 import UserInfo from "./components/UserInfo";
+import { getServerSession } from "next-auth";
+import { authOption } from "@/lib/authOption";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOption)
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -51,7 +54,9 @@ export default function Home() {
           >
             Read our docs
           </a>
-          <UserInfo/>
+          
+          <p>server side {JSON.stringify(session)}
+          </p>
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

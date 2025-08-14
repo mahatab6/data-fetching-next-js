@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import Login from './Login'
+import { getServerSession } from 'next-auth'
+import { authOption } from '@/lib/authOption'
 
-export default function Navbar() {
+export default async function Navbar() {
   return (
     <div className='flex justify-around'>
         <Link href='/'>Home</Link>
