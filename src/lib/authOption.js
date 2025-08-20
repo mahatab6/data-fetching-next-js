@@ -19,7 +19,7 @@ export const authOption = {
           .findOne({ email });
 
         if (!user) return null;
-        if (password !== user.password) return null; 
+        if (password !== user.password) return null;
 
         return {
           id: user._id.toString(),
@@ -50,4 +50,3 @@ export const authOption = {
 
   secret: process.env.NEXTAUTH_SECRET,
 };
-

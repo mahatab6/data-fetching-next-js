@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOption } from "@/lib/authOption";
 
 export default async function Home() {
-  const session = await getServerSession(authOption)
+  const session = await getServerSession(authOption);
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -45,7 +45,7 @@ export default async function Home() {
             />
             Deploy now
           </a>
-          <UserInfo/>
+          <UserInfo />
           <a
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -54,9 +54,8 @@ export default async function Home() {
           >
             Read our docs
           </a>
-          
-          <p>server side {JSON.stringify(session)}
-          </p>
+
+          <p>server side {JSON.stringify(session)}</p>
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

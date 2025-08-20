@@ -32,7 +32,7 @@ export default function RegisterPage() {
             <input className=' border-2 p-1' type="email" placeholder="Email" {...register("email", {})} />
         </div>
         <div>
-            <label className='block' htmlFor="">Password</label>
+            <label className='block' htmlFor="">password</label>
             <input className='border-2 p-1' type="password" placeholder="Password" {...register("password", {})} />
         </div>
         <button className='bg-purple-600 p-2 rounded-xl m-4 hover:cursor-pointer' type='submit'>Submit</button>
